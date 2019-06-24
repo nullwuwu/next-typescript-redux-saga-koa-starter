@@ -2,8 +2,8 @@ import { observable } from "mobx";
 
 export class TodoModel {
     readonly id: number
-    @observable title = "";
-    @observable finished = false;
+    @observable title: string = "";
+    @observable finished: boolean = false;
 
     constructor(title: string, finished: boolean) {
         this.id = TodoModel.generatedId()

@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { observer, inject } from "mobx-react";
 import { RouteComponentProps } from 'react-router';
-import { STORE_ROUTER, STORE_TODO } from 'app/constants/stores';
-import RouterStore from 'app/stores/RouterStore';
-import TodoStore from 'app/stores/TodoStore';
+import { STORE_ROUTER, STORE_TODO } from 'app/constants';
+import { RouterStore, TodoStore } from 'app/stores';
+import { TodoView } from 'app/components';
 
 export interface TodoListProps extends RouteComponentProps<any> {
     [STORE_ROUTER]: RouterStore,
@@ -31,12 +31,3 @@ export default class TodoListView extends React.Component<TodoListProps, TodoLis
         )
     }
 }
-
-const TodoView = observer(({ todo }) => 
-    <li>
-        <input type="checkbox" 
-        checked={ todo.finished }
-        onClick={ () => todo.finished = !todo.finished } />
-        { todo.title }
-    </li>
-)
