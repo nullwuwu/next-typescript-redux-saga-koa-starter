@@ -1,12 +1,14 @@
 import * as React from "react";
 import { observer } from "mobx-react";
 
+import * as style from './index.scss'
+
 export const TodoView = observer(({ todo }) => 
     <li>
         <input type="checkbox" 
         defaultChecked={ todo.finished }
         onClick={ () => todo.finished = !todo.finished } />
-        { todo.title }
+        <span className={ style.red }> { todo.title } </span>
     </li>
 )
 

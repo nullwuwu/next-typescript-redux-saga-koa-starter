@@ -15,10 +15,10 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const paths = require('./config/paths')
 
 // style files regexes
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
+// const cssRegex = /\.css$/;
+// const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
+// const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 
 module.exports = (env, { mode }) => {
@@ -68,7 +68,7 @@ module.exports = (env, { mode }) => {
         },
         // css
         {
-          test: cssRegex,
+          test: sassRegex,
           use: [
             isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
             {
@@ -99,6 +99,9 @@ module.exports = (env, { mode }) => {
                   })
                 ]
               }
+            },
+            {
+              loader: 'sass-loader'
             }
           ]
         },
