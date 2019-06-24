@@ -23,7 +23,8 @@
     "mobx-react-devtools": "^6.0.3",
     "mobx-react-router": "^4.0.7",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-router": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
