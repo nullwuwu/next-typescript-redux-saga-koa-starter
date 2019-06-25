@@ -1,6 +1,6 @@
 import DuRequest from './core'
 
-import { bind } from './util'
+import { bind } from './helpers'
 
 const instance = new DuRequest()
 
