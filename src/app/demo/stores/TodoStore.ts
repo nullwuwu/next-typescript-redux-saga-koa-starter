@@ -1,7 +1,12 @@
 import { observable, computed } from "mobx";
-import { TodoModel } from "app/models";
+import { TodoModel } from "app/demo/models";
 
-export class TodoStore {
+export interface TodoStoreInstance {
+    todos: TodoModel[]
+    unfinishedTodoCount: number
+}
+
+export class TodoStore implements TodoStoreInstance{
     constructor(fixtures: TodoModel[]) {
         this.todos = fixtures
     }

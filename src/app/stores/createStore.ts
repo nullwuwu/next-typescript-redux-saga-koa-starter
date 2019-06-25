@@ -1,21 +1,16 @@
 import { History } from "history";
-import TodoModel from "app/models/TodoModel";
 import RouterStore from "./RouterStore";
-import TodoStore from "./TodoStore";
-import { STORE_ROUTER, STORE_TODO } from '../constants/stores';
+import { STORE_ROUTER } from 'app/constants';
 
-export interface defaultStoreConfigure {
-    Todos?: TodoModel[]
-}
+// modules stores
+import { DemoModuleStores, defaultConfigure } from 'app/demo/stores';
 
-export function createStores(history: History, defaultConfigure: defaultStoreConfigure) {
-    const { Todos } = defaultConfigure
-
+export function createStores(history: History) {
     const routerStore = new RouterStore(history)
-    const todoStore = new TodoStore(Todos)
+    const demoStore = new DemoModuleStores(defaultConfigure)
 
     return {
         [STORE_ROUTER]: routerStore,
-        [STORE_TODO]: todoStore
+        ...demoStore
     }
 }

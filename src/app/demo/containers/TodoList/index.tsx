@@ -1,12 +1,11 @@
 import * as React from 'react'
 import { observer, inject } from "mobx-react";
 import { RouteComponentProps } from 'react-router';
-import { STORE_ROUTER, STORE_TODO } from 'app/constants';
-import { RouterStore, TodoStore } from 'app/stores';
-import { TodoView } from 'app/components';
+import { STORE_TODO } from 'app/constants';
+import { TodoStore } from 'app/demo/stores';
+import { TodoView } from 'app/demo/components';
 
 export interface TodoListProps extends RouteComponentProps<any> {
-    [STORE_ROUTER]: RouterStore,
     [STORE_TODO]: TodoStore
 }
 
@@ -14,7 +13,7 @@ export interface TodoListState {
 
 }
 
-@inject(STORE_ROUTER, STORE_TODO)
+@inject(STORE_TODO)
 @observer
 export default class TodoListView extends React.Component<TodoListProps, TodoListState> {
     render() {
