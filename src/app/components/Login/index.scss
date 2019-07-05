@@ -1,0 +1,37 @@
+.account {
+    color: rgb(20, 21, 26);
+    font-family: SFProText-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    height: 19px;
+    width: 235px;
+    line-height: 68px;
+    text-align: right;
+    height: 100%;
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    width: 240px;
+    height: 200px;
+    top: 68px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.popupItem {
+    text-align: left;
+    line-height: normal;
+    padding: 20px 16px 18px;
+    word-wrap: break-word;
+    color: rgb(127, 127, 142);
+    font-family: SFProText-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    border-bottom: 1px solid rgb(241, 241, 245);
+    p:nth-child(2) {
+        margin-top: 8px;
+    }
+}

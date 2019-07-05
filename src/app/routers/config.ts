@@ -1,10 +1,10 @@
-import TodoListView from 'app/demo/containers/TodoList/index';
-// import Root from 'app/Root';
+import HomeView from "app/Home/containers";
+
 
 export const routes = [
     {
         path: '/',
         exact: true,
-        component: TodoListView
+        component: HomeView
     }
 ]
