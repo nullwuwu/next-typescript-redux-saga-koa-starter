@@ -1,16 +1,28 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { Router, Route, Switch } from 'react-router'
-import { Root } from 'app/demo/containers/Root';
-import TodoListView from 'app/demo/containers/TodoList';
+import { Router, Switch, Route } from 'react-router';
+
+import 'normalize.css'
+import Root from './Root';
+import { routes } from './routers'
 
 
 // render react Dom
 export const App = hot(({ history }) => (
     <Root>
         <Router history={history}>
-            <Switch>
+            {/* <Switch>
                 <Route path='/' component={TodoListView}/>
+            </Switch> */}
+            <Switch>
+                {
+                    routes.map((route, i) => (
+                        <Route
+                            key={i}
+                            {...route}
+                        />
+                    ))
+                }
             </Switch>
         </Router>
     </Root>

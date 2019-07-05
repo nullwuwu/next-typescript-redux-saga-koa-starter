@@ -1,2 +1,2 @@
 export * from './createStore'
-export * from './routerStore'
+export * from './RouterStore'

@@ -22,6 +22,7 @@
     "mobx-react": "^5.3.5",
     "mobx-react-devtools": "^6.0.3",
     "mobx-react-router": "^4.0.7",
+    "normalize.css": "^8.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router": "^5.0.1"

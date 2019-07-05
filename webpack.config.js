@@ -15,7 +15,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const paths = require('./config/paths')
 
 // style files regexes
-// const cssRegex = /\.css$/;
+const cssRegex = /\.css$/;
 // const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 // const sassModuleRegex = /\.module\.(scss|sass)$/;
@@ -67,6 +67,42 @@ module.exports = (env, { mode }) => {
           ].filter(Boolean)
         },
         // css
+        {
+          test: cssRegex,
+          use: [
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            {
+              loader: 'css-loader',
+              query: {
+                modules: true,
+                sourceMap: !isProduction,
+                importLoaders: 1,
+                localIdentName: isProduction
+                  ? '[hash:base64:5]'
+                  : '[local]__[hash:base64:5]'
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: [
+                  require('postcss-import')({ addDependencyTo: webpack }),
+                  require('postcss-url')(),
+                  require('postcss-preset-env')({
+                    /* use stage 2 features (defaults) */
+                    stage: 2
+                  }),
+                  require('postcss-reporter')(),
+                  require('postcss-browser-reporter')({
+                    disabled: isProduction
+                  })
+                ]
+              }
+            },
+          ]
+        },
+        // scss
         {
           test: sassRegex,
           use: [
