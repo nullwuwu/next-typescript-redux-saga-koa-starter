@@ -42,8 +42,8 @@ const config = {
     ]
 
     // - alias
-    config.resolve.alias['components'] = path.join(__dirname, 'components')
-    config.resolve.alias['interfaces'] = path.join(__dirname, 'interfaces')
+    config.resolve.alias['components'] = path.join(__dirname, 'client/components')
+    config.resolve.alias['interfaces'] = path.join(__dirname, 'client/interfaces')
     config.resolve.alias['consts'] = path.join(__dirname, 'lib/consts')
 
     return config

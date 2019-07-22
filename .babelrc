@@ -2,10 +2,11 @@
   "presets": [
     [
       "next/babel",
-      {      
+      {
         "class-properties": { "loose": true }
       }
     ],
     "@zeit/next-typescript/babel"
-  ]
+  ],
+  "plugins": [["@babel/plugin-proposal-decorators", { "legacy": true }]]
 }
