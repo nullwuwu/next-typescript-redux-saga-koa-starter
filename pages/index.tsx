@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 
+import * as style from './index.scss';
+
 export default () => (
   <div style={{ padding: '10px 45px' }}>
     <Head>
@@ -12,6 +14,8 @@ export default () => (
       <a href="/robots.txt" target="_blank">
         Robots
       </a>
+
+      <span className={style.test}>asdadasdasdsa</span>
     </p>
   </div>
 );

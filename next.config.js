@@ -1,26 +1,33 @@
 const dotenv = require('dotenv');
 const fs = require('fs');
-const withTypescript = require('@zeit/next-typescript');
 const webpack = require('webpack');
 
+const withTypescript = require('@zeit/next-typescript');
+const withSass = require('@zeit/next-sass');
 
-var current = { ...process.env };
+// - 环境变量
+let current = { ...process.env };
 const result = dotenv.config();
+
 if (!result.error) {
   current = { ...current, ...result.parsed };
 }
 
-var blueprint = { NODE_ENV: process.env.NODE_ENV };
+let blueprint = { NODE_ENV: process.env.NODE_ENV };
+
 try {
   blueprint = { ...blueprint, ...dotenv.parse(fs.readFileSync('./.env.blueprint', 'utf8')) };
 } catch (err) {
   console.log(err);
 }
+
 const rules = Object.keys(blueprint).reduce((obj, key) => {
   obj[`process.env.${key}`] = JSON.stringify(current[key]);
   return obj
 }, {});
 
+
+// - webpack configure
 const config = {
   webpack: config => {
     config.plugins = config.plugins || []
@@ -35,4 +42,18 @@ const config = {
     return config
   }
 };
-module.exports = withTypescript(config);
+
+// - sass-loader configure
+const configBeWithSass = baseConfig => {
+  const sassConfig = {
+    cssModules: true,
+    cssLoaderOptions: {
+      importLoaders: 1,
+      localIdentName: "[local]___[hash:base64:5]",
+    }
+  }
+
+  return withSass(Object.assign(sassConfig, baseConfig))
+}
+
+module.exports = withTypescript(configBeWithSass(config));
