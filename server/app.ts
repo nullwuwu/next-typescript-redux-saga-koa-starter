@@ -1,5 +1,8 @@
 import './env';
 
+import * as fs from 'fs';
+import * as path from 'path';
+
 import * as koa from 'koa';
 import * as koaRouter from 'koa-router';
 import * as mobxReact from 'mobx-react';
@@ -29,6 +32,12 @@ app.prepare().then(() => {
 
   router.get('/', async ctx => {
     await app.render(ctx.req, ctx.res, '/', ctx.query);
+    ctx.respond = false;
+  });
+
+  router.get('/robots.txt', async ctx => {
+    ctx.type = 'txt';
+    ctx.body = fs.createReadStream(path.join(__dirname, '../static', 'robots.txt'));
     ctx.respond = false;
   });
 

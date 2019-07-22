@@ -1,5 +1,4 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -16,7 +15,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types"],
-    "lib": ["dom", "es2015", "es2016"]
+    "lib": ["es6", "es7", "dom"]
   },
   "exclude": ["production-server", ".next", "next.config.js"]
 }
