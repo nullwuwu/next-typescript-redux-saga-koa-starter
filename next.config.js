@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const fs = require('fs');
+const path = require('path');
 const webpack = require('webpack');
 
 const withTypescript = require('@zeit/next-typescript');
@@ -30,6 +31,7 @@ const rules = Object.keys(blueprint).reduce((obj, key) => {
 // - webpack configure
 const config = {
   webpack: config => {
+    // - plugins configure
     config.plugins = config.plugins || []
 
     config.plugins = [
@@ -38,6 +40,11 @@ const config = {
       // Read the .env file
       new webpack.DefinePlugin(rules)
     ]
+
+    // - alias
+    config.resolve.alias['components'] = path.join(__dirname, 'components')
+    config.resolve.alias['interfaces'] = path.join(__dirname, 'interfaces')
+    config.resolve.alias['consts'] = path.join(__dirname, 'lib/consts')
 
     return config
   }

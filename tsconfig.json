@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types"],
-    "lib": ["es6", "es7", "dom"]
+    "lib": ["es6", "es7", "dom"],
+    "paths": {
+      "components/*": ["./components/*"],
+      "interfaces/*": ["./interfaces/*"],
+      "consts/*": ["./lib/consts/*"]
+    }
   },
   "exclude": ["production-server", ".next", "next.config.js"]
 }
