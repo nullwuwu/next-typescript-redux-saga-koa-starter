@@ -1,0 +1,47 @@
+{
+  "name": "saas-app",
+  "version": "1.2.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd --respawn --transpileOnly --project tsconfig.server.json --ignore-watch .next -- server/app.ts",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "postinstall": "next build && rm -rf production-server/ & tsc --project tsconfig.server.json",
+    "start": "node production-server/server/app.js",
+    "now": "now && now alias",
+    "now-rm": "now rm saas-app --safe --yes",
+    "lint": "tslint -p tsconfig.json && tslint -p tsconfig.server.json",
+    "test": "jest --coverage --passWithNoTests",
+    "processes-3000": "ss -lptn 'sport = :3000'",
+    "processes-node": "ps -e|grep node",
+    "kill-processes-at-port": "lsof -i tcp:3000 | awk 'NR!=1 {print $2}' | xargs kill",
+    "docker:build": "yarn lint && yarn test && docker image build . -t saas-app:latest",
+    "docker:run": "yarn docker:clean && yarn docker:runHelper",
+    "docker:runHelper": "docker run --name saas-app-latest --env-file .env -d -p 8000:8000 saas-app:latest",
+    "docker:clean": "docker rm -f saas-app-latest || true",
+    "docker:taillogs": "docker logs -f saas-app-latest",
+    "docker:debug": "yarn docker:build && yarn docker:run && yarn docker:taillogs"
+  },
+  "dependencies": {
+    "@types/node": "12.0.10",
+    "@zeit/next-typescript": "1.1.1",
+    "dotenv": "^8.0.0",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "mobx": "5.10.1",
+    "mobx-react": "6.1.1",
+    "next": "8.1.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "typescript": "3.5.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.49",
+    "@types/koa-router": "^7.0.42",
+    "@types/next": "8.0.5",
+    "@types/react": "16.8.22",
+    "@types/styled-jsx": "2.2.8",
+    "ts-node": "8.3.0",
+    "ts-node-dev": "^1.0.0-pre.40",
+    "tslint": "5.18.0"
+  }
+}
