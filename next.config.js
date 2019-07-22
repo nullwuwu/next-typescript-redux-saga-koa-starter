@@ -16,7 +16,7 @@ if (!result.error) {
 let blueprint = { NODE_ENV: process.env.NODE_ENV };
 
 try {
-  blueprint = { ...blueprint, ...dotenv.parse(fs.readFileSync('./.env.blueprint', 'utf8')) };
+  blueprint = { ...blueprint, ...dotenv.parse(fs.readFileSync('./.env', 'utf8')) };
 } catch (err) {
   console.log(err);
 }
