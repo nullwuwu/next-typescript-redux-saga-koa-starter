@@ -1,27 +1,34 @@
 {
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "target": "esnext",
-    "module": "esnext",
-    "jsx": "react",
-    "allowJs": true,
-    "alwaysStrict": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types"],
-    "lib": ["es6", "es7", "dom"],
-    "paths": {
-      "components/*": ["./client/components/*"],
-      "interfaces/*": ["./client/interfaces/*"],
-      "consts/*": ["lib/consts/*"]
-    }
-  },
-  "exclude": ["production-server", ".next", "next.config.js"]
+	"compilerOptions": {
+		"experimentalDecorators": true,
+		"target": "esnext",
+		"module": "esnext",
+		"jsx": "react",
+		"allowJs": true,
+		"alwaysStrict": true,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"removeComments": false,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"typeRoots": ["./node_modules/@types"],
+		"lib": ["es6", "es7", "dom"],
+		"paths": {
+			"components/*": ["./client/components/*"],
+			"interfaces/*": ["./client/interfaces/*"],
+			"consts/*": ["lib/consts/*"]
+		}
+	},
+	"exclude": [
+		"production-server",
+		".next",
+		"next.config.js",
+		"postcss.config.js",
+		".eslintrc.js",
+		".prettierrc.js"
+	]
 }
