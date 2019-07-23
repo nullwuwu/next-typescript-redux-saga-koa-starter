@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { AppState } from '../redux'
+import { AppState } from '../redux/models'
 import {
 	countDecrease,
 	countIncrease,
 	DECREMENT,
 	INCREMENT,
-} from '../redux/actions'
+} from '../redux/actions/count'
 
 // interface OwnProps {}
 
@@ -32,7 +32,7 @@ const Counter = (props: StateProps & ActionProps) => {
 	)
 }
 
-export default connect<StateProps, ActionProps, OwnProps, AppState>(
+export default connect<StateProps, ActionProps, {}, AppState>(
 	(state) => ({
 		count: state.countState.number,
 	}),
