@@ -1,9 +1,7 @@
-import { all } from "@redux-saga/core/effects";
-
-
+import { all } from '@redux-saga/core/effects'
 
 function* rootSaga() {
-    yield all([])
+	yield all([])
 }
 
-export default rootSaga;
+export default rootSaga

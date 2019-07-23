@@ -1,33 +1,34 @@
-import { IS_DEV } from 'consts/index';
-import { applyMiddleware, createStore } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import { IS_DEV } from 'consts/index'
+import { applyMiddleware, createStore } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 
-import rootReducer from './reducers';
-import rootSaga from './sagas';
+import rootReducer from './reducers'
+import rootSaga from './sagas'
 
-const bindMiddleware = middleware => {
-    if (IS_DEV) {
-        const { composeWithDevTools } = require('redux-devtools-extension');
-        return composeWithDevTools(applyMiddleware(...middleware));
-    }
+const bindMiddleware = (middleware) => {
+	if (IS_DEV) {
+		// eslint-disable-next-line @typescript-eslint/no-var-requires
+		const { composeWithDevTools } = require('redux-devtools-extension')
+		return composeWithDevTools(applyMiddleware(...middleware))
+	}
 
-    return applyMiddleware(...middleware);
-};
+	return applyMiddleware(...middleware)
+}
 
-const configureStore = ( initialState = {} ) => {
-    const sagaMiddleware = createSagaMiddleware();
+const configureStore = (initialState = {}) => {
+	const sagaMiddleware = createSagaMiddleware()
 
-    const store = createStore(
-        rootReducer,
-        initialState,
-        bindMiddleware([ sagaMiddleware ]),
-    );
+	const store = createStore(
+		rootReducer,
+		initialState,
+		bindMiddleware([sagaMiddleware]),
+	)
 
-    store.sagaTask = sagaMiddleware.run(rootSaga);
+	store.sagaTask = sagaMiddleware.run(rootSaga)
 
-    return store;
-};
+	return store
+}
 
-export * from './reducers';
+export * from './reducers'
 
-export default configureStore;
+export default configureStore

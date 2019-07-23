@@ -1,37 +1,37 @@
-import configureStore from '../client/redux';
-import withReduxSaga from 'next-redux-saga';
-import withRedux from 'next-redux-wrapper';
-import App, { Container } from 'next/app';
-import * as React from 'react';
-import { Provider as ReduxProvider } from 'react-redux';
-import { AnyAction, Store } from 'redux';
+import configureStore from '../client/redux'
+import withReduxSaga from 'next-redux-saga'
+import withRedux from 'next-redux-wrapper'
+import App, { Container } from 'next/app'
+import * as React from 'react'
+import { Provider as ReduxProvider } from 'react-redux'
+import { AnyAction, Store } from 'redux'
 
 interface PoizonAppProps {
-  store: Store<any, AnyAction>;
+	store: Store<any, AnyAction>
 }
 
 class PoizonApp extends App<PoizonAppProps, {}> {
-  public static async getInitialProps({Component, ctx}) {
-    let pageProps = {};
+	static async getInitialProps({ Component, ctx }) {
+		let pageProps = {}
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
+		if (Component.getInitialProps) {
+			pageProps = await Component.getInitialProps(ctx)
+		}
 
-    return {pageProps};
-  }
+		return { pageProps }
+	}
 
-  public render() {
-    const { Component, pageProps, store } = this.props;
+	render() {
+		const { Component, pageProps, store } = this.props
 
-    return (
-        <Container>
-          <ReduxProvider store={store}>
-            <Component {...pageProps} />
-          </ReduxProvider>
-        </Container>
-    );
-  }
+		return (
+			<Container>
+				<ReduxProvider store={store}>
+					<Component {...pageProps} />
+				</ReduxProvider>
+			</Container>
+		)
+	}
 }
 
-export default withRedux(configureStore)(withReduxSaga(PoizonApp));
+export default withRedux(configureStore)(withReduxSaga(PoizonApp))

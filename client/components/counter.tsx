@@ -1,38 +1,43 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AppState } from '../redux'
-import { countDecrease, countIncrease, DECREMENT, INCREMENT } from '../redux/actions'
+import {
+	countDecrease,
+	countIncrease,
+	DECREMENT,
+	INCREMENT,
+} from '../redux/actions'
 
-interface OwnProps {
-}
+// interface OwnProps {}
 
 interface StateProps {
-  count: number;
+	count: number
 }
 
 interface ActionProps {
-    countIncrease: () => INCREMENT;
-    countDecrease: () => DECREMENT;
+	countIncrease: () => INCREMENT
+	countDecrease: () => DECREMENT
 }
 
-const Counter = (props: OwnProps & StateProps & ActionProps) => {
-  const { count, countIncrease, countDecrease  } = props;
-  return (
-    <div>
-        <p>Count: {count}</p>
-        <div>
-          <button onClick={() => countIncrease()}>Increment</button>
-          <button onClick={() => countDecrease()}>Decrement</button>
-        </div>
-    </div>
-  );
-};
+const Counter = (props: StateProps & ActionProps) => {
+	const { count, countIncrease, countDecrease } = props
+	return (
+		<div>
+			<p>Count: {count}</p>
+			<div>
+				<button onClick={() => countIncrease()}>Increment</button>
+				<button onClick={() => countDecrease()}>Decrement</button>
+			</div>
+		</div>
+	)
+}
 
-export default connect<StateProps, ActionProps, OwnProps, AppState>(state => ({
-    count: state.countState.number,
-  }),
-  {
-    countDecrease,
-    countIncrease,
-  },
-)(Counter);
+export default connect<StateProps, ActionProps, OwnProps, AppState>(
+	(state) => ({
+		count: state.countState.number,
+	}),
+	{
+		countDecrease,
+		countIncrease,
+	},
+)(Counter)

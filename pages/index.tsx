@@ -1,24 +1,26 @@
-import Head from 'next/head';
-import React from 'react';
+import Head from 'next/head'
+import React from 'react'
 
-import Counter from 'components/counter';
-import * as style from './index.scss';
+import Counter from 'components/counter'
+import * as style from './index.scss'
 
-export default () => (
-  <div style={{ padding: '10px 45px' }}>
-    <Head>
-      <title>Index page</title>
-      <meta name="description" content="description for indexing bots" />
-    </Head>
-    <p>
-      <br />
-      <a href="/robots.txt" target="_blank">
-        Robots
-      </a>
+const IndexPage = () => (
+	<div style={{ padding: '10px 45px' }}>
+		<Head>
+			<title>Index page</title>
+			<meta name="description" content="description for indexing bots" />
+		</Head>
+		<p>
+			<br />
+			<a href="/robots.txt" target="_blank">
+				Robots
+			</a>
 
-      <span className={style.test}>asdadasdasdsa</span>
-    </p>
+			<span className={style.test}>asdadasdasdsa</span>
+		</p>
 
-    <Counter />
-  </div>
-);
+		<Counter />
+	</div>
+)
+
+export default IndexPage

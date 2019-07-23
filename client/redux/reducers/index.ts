@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
-import countReducer, { IState } from './count';
+import { combineReducers } from 'redux'
+import countReducer, { IState } from './count'
 
 export interface AppState {
-    countState: IState;
+	countState: IState
 }
 
 export const reducers = combineReducers({
-    countState: countReducer,
-});
+	countState: countReducer,
+})
 
-export default reducers;
+export default reducers
