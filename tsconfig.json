@@ -3,7 +3,7 @@
     "experimentalDecorators": true,
     "target": "esnext",
     "module": "esnext",
-    "jsx": "preserve",
+    "jsx": "react",
     "allowJs": true,
     "alwaysStrict": true,
     "moduleResolution": "node",

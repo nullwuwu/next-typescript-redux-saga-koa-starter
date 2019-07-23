@@ -5,12 +5,9 @@ import * as path from 'path';
 
 import * as koa from 'koa';
 import * as koaRouter from 'koa-router';
-import * as mobxReact from 'mobx-react';
 import * as next from 'next';
 
 import { IS_DEV, PORT_APP, URL_APP } from '../lib/consts';
-
-mobxReact.useStaticRendering(true);
 
 const app = next({ dev: IS_DEV });
 const handle = app.getRequestHandler();
