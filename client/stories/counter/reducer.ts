@@ -7,22 +7,27 @@ import {
 } from './actions'
 import { combineReducers } from 'redux'
 
-export const isFetching = createReducer(false as boolean)
+export const isFetching = createReducer<boolean>(false)
 	.handleAction([fetchCounterRequest.request], () => true)
 	.handleAction(
 		[fetchCounterRequest.success, fetchCounterRequest.failure],
 		() => false,
 	)
 
-export const count = createReducer(0 as number)
-	.handleAction([fetchCounterRequest.success], (_, action) => action.payload)
+export const count = createReducer<number>(0)
+	.handleAction([fetchCounterRequest.success], (_, action) => {
+		console.log(action.payload)
+		return action.payload
+	})
 	.handleAction([incrementCounter], (state) => state + 1)
 	.handleAction([decrementCounter], (state) => state - 1)
 
-const counterReducers = combineReducers({
-	isFetching,
-	count,
-})
+const counterReducers = combineReducers<{ isFetching: boolean; count: number }>(
+	{
+		isFetching,
+		count,
+	},
+)
 
 export default counterReducers
 

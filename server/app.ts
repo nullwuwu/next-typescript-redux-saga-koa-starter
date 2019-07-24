@@ -32,6 +32,11 @@ app.prepare().then(() => {
 		ctx.respond = false
 	})
 
+	router.get('/demo', async (ctx) => {
+		await app.render(ctx.req, ctx.res, '/demo', ctx.query)
+		ctx.respond = false
+	})
+
 	router.get('/robots.txt', async (ctx) => {
 		ctx.type = 'txt'
 		ctx.body = fs.createReadStream(

@@ -4,6 +4,11 @@ import { fetchCounterRequest, fetchCounter } from './actions'
 import { CounterResponse } from 'CounterModel'
 import { getType } from 'typesafe-actions'
 
+import 'isomorphic-unfetch'
+import es6promise from 'es6-promise'
+
+es6promise.polyfill()
+
 export function* handleFetchCounter() {
 	try {
 		yield put(fetchCounterRequest.request())
