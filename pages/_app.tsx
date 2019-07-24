@@ -4,13 +4,14 @@ import withRedux from 'next-redux-wrapper'
 import App, { Container } from 'next/app'
 import * as React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
-import { AnyAction, Store } from 'redux'
+import { Store } from 'redux'
+import { RootState, RootAction } from 'typesafe-actions'
 
 interface PoizonAppProps {
-	store: Store<any, AnyAction>
+	store: Store<RootState, RootAction>
 }
 
-class PoizonApp extends App<PoizonAppProps, {}> {
+class PoizonApp extends App<PoizonAppProps> {
 	static async getInitialProps({ Component, ctx }) {
 		let pageProps = {}
 

@@ -7778,6 +7778,11 @@ typedarray@^0.0.6:
   resolved "https://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typesafe-actions@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.npm.taobao.org/typesafe-actions/download/typesafe-actions-4.4.2.tgz#8f817c479d12130b5ebb442032968b2a18929e1a"
+  integrity sha1-j4F8R50SEwteu0QgMpaLKhiSnho=
+
 typescript-compare@^0.0.2:
   version "0.0.2"
   resolved "https://registry.npm.taobao.org/typescript-compare/download/typescript-compare-0.0.2.tgz#7ee40a400a406c2ea0a7e551efd3309021d5f425"

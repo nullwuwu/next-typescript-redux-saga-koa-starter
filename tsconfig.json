@@ -18,9 +18,9 @@
 		"typeRoots": ["./node_modules/@types"],
 		"lib": ["es6", "es7", "dom"],
 		"paths": {
-			"components/*": ["./client/components/*"],
-			"interfaces/*": ["./client/interfaces/*"],
-			"consts/*": ["lib/consts/*"]
+			"$components/*": ["./client/components/*"],
+			"$stories/*": ["./client/stories/*"],
+			"$redux/*": ["./client/redux/*"]
 		}
 	},
 	"exclude": [

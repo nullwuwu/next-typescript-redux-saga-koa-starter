@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
 
-import Counter from 'components/counter'
 import * as style from './index.scss'
 
 const IndexPage = () => (
@@ -18,8 +17,6 @@ const IndexPage = () => (
 
 			<span className={style.test}>asdadasdasdsa</span>
 		</p>
-
-		<Counter />
 	</div>
 )
 
